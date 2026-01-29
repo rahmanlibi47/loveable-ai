@@ -38,7 +38,7 @@ const Footer = () => {
                 </a>
                 
                 <a 
-                  href="https://quicksandstudio.netlify.app/" 
+                  href="https://quicksand.co.in/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="block transition-opacity duration-200 hover:opacity-75"
@@ -47,6 +47,25 @@ const Footer = () => {
                   <img 
                     src="/lovable-uploads/76f2ec2d-4944-4f91-bcdc-fa824d99e442.png" 
                     alt="Quicksand Studio Logo" 
+                    className="h-16 w-auto object-contain"
+                  />
+                </a>
+              </div>
+            </div>
+            <div className="flex flex-col items-start gap-4">
+              <h3 className="text-foreground font-medium text-lg">In partnership with</h3>
+              
+              <div className="flex items-center gap-6">
+                <a 
+                  href="https://www.agatsufoundation.org/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="block transition-opacity duration-200 hover:opacity-75"
+                  aria-label="Agatsu"
+                >
+                  <img 
+                    src="/lovable-uploads/agatsu-horizontal.png" 
+                    alt="Agatsu Logo" 
                     className="h-16 w-auto object-contain"
                   />
                 </a>
