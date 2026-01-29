@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Linkedin, Instagram, Twitter } from 'lucide-react';
 
 const Footer = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <footer className="bg-card border-t border-border py-6 px-2">
       <div className="w-full px-2">
@@ -15,38 +26,38 @@ const Footer = () => {
               <p>among children and adolescents below the age of 18.</p>
             </div>
           </div>
-          
+
           {/* Right side - Organisers and Connect horizontally aligned */}
           <div className="flex flex-row gap-6 lg:gap-12 items-start">
             {/* Organisers section */}
             <div className="flex flex-col items-start gap-4">
               <h3 className="text-foreground font-medium text-lg">Organisers</h3>
-              
+
               <div className="flex items-center gap-6">
-                <a 
-                  href="https://cmhlp.org/" 
-                  target="_blank" 
+                <a
+                  href="https://cmhlp.org/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="block transition-opacity duration-200 hover:opacity-75"
                   aria-label="CMHLP"
                 >
-                  <img 
-                    src="/lovable-uploads/ec243733-88e6-4ea9-bdd1-5ab004479912.png" 
-                    alt="CMHLP Logo" 
+                  <img
+                    src="/lovable-uploads/ec243733-88e6-4ea9-bdd1-5ab004479912.png"
+                    alt="CMHLP Logo"
                     className="h-16 w-auto object-contain"
                   />
                 </a>
-                
-                <a 
-                  href="https://quicksand.co.in/" 
-                  target="_blank" 
+
+                <a
+                  href="https://quicksand.co.in/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="block transition-opacity duration-200 hover:opacity-75"
                   aria-label="Quicksand Studio"
                 >
-                  <img 
-                    src="/lovable-uploads/76f2ec2d-4944-4f91-bcdc-fa824d99e442.png" 
-                    alt="Quicksand Studio Logo" 
+                  <img
+                    src="/lovable-uploads/76f2ec2d-4944-4f91-bcdc-fa824d99e442.png"
+                    alt="Quicksand Studio Logo"
                     className="h-16 w-auto object-contain"
                   />
                 </a>
@@ -54,62 +65,102 @@ const Footer = () => {
             </div>
             <div className="flex flex-col items-start gap-4">
               <h3 className="text-foreground font-medium text-lg">In partnership with</h3>
-              
+
               <div className="flex items-center gap-6">
-                <a 
-                  href="https://www.agatsufoundation.org/" 
-                  target="_blank" 
+                <a
+                  href="https://www.agatsufoundation.org/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="block transition-opacity duration-200 hover:opacity-75"
                   aria-label="Agatsu"
                 >
-                  <img 
-                    src="/lovable-uploads/agatsu-horizontal.png" 
-                    alt="Agatsu Logo" 
+                  <img
+                    src="/lovable-uploads/agatsu-horizontal.png"
+                    alt="Agatsu Logo"
                     className="h-16 w-auto object-contain"
                   />
                 </a>
               </div>
             </div>
-            
+
             {/* Connect section */}
-            <div className="flex flex-col items-start gap-4">
-              <h3 className="text-foreground font-medium text-lg">Connect</h3>
-              
-              <div className="flex items-center gap-3">
-                <a 
-                  href="https://www.linkedin.com/showcase/10k2zero/"
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-background rounded-full flex items-center justify-center hover:bg-background/80 transition-colors duration-200"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="w-5 h-5 text-white" strokeWidth={0.5} />
-                </a>
-                
-                <a 
-                  href="https://www.instagram.com/10k2zero/"
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-background rounded-full flex items-center justify-center hover:bg-background/80 transition-colors duration-200"
-                  aria-label="Instagram"
-                >
-                  <Instagram className="w-5 h-5 text-card" />
-                </a>
-                
-                <a 
-                  href="https://x.com/10ktozero"
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-background rounded-full flex items-center justify-center hover:bg-background/80 transition-colors duration-200"
-                  aria-label="Twitter"
-                >
-                  <Twitter className="w-5 h-5 text-card" />
-                </a>
+            {!isMobile &&
+              <div className="flex flex-col items-start gap-4">
+                <h3 className="text-foreground font-medium text-lg">Connect</h3>
+
+                <div className="flex items-center gap-3">
+                  <a
+                    href="https://www.linkedin.com/showcase/10k2zero/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-background rounded-full flex items-center justify-center hover:bg-background/80 transition-colors duration-200"
+                    aria-label="LinkedIn"
+                  >
+                    <Linkedin className="w-5 h-5 text-white" strokeWidth={0.5} />
+                  </a>
+
+                  <a
+                    href="https://www.instagram.com/10k2zero/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-background rounded-full flex items-center justify-center hover:bg-background/80 transition-colors duration-200"
+                    aria-label="Instagram"
+                  >
+                    <Instagram className="w-5 h-5 text-card" />
+                  </a>
+
+                  <a
+                    href="https://x.com/10ktozero"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-background rounded-full flex items-center justify-center hover:bg-background/80 transition-colors duration-200"
+                    aria-label="Twitter"
+                  >
+                    <Twitter className="w-5 h-5 text-card" />
+                  </a>
+                </div>
               </div>
+            }
+          </div>
+
+        </div>
+        {isMobile &&
+          <div className="flex flex-col items-start gap-4 mt-5">
+            <h3 className="text-foreground font-medium text-lg">Connect</h3>
+
+            <div className="flex items-center gap-3">
+              <a
+                href="https://www.linkedin.com/showcase/10k2zero/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-background rounded-full flex items-center justify-center hover:bg-background/80 transition-colors duration-200"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5 text-white" strokeWidth={0.5} />
+              </a>
+
+              <a
+                href="https://www.instagram.com/10k2zero/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-background rounded-full flex items-center justify-center hover:bg-background/80 transition-colors duration-200"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5 text-card" />
+              </a>
+
+              <a
+                href="https://x.com/10ktozero"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-background rounded-full flex items-center justify-center hover:bg-background/80 transition-colors duration-200"
+                aria-label="Twitter"
+              >
+                <Twitter className="w-5 h-5 text-card" />
+              </a>
             </div>
           </div>
-        </div>
+        }
       </div>
     </footer>
   );
