@@ -13,7 +13,7 @@ const TimelineSection = () => {
     },
     {
       id: 2,
-      date: "Oct–Nov 2025",
+      date: "Apr 2025",
       title: "In-person Symposium",
       description: "Roundtable discussions to deepen engagement and produce academic outputs.",
       icon: Users,
